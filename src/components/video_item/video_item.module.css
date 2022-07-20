@@ -1,0 +1,8 @@
+.thumbnail {
+  background-color: #ffffff1a;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
