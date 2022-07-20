@@ -8,11 +8,14 @@ function Navbar() {
         <span className={styles.title}>YouTube</span>
       </div>
       <div className={styles.search} id="search">
-        <form>
-          <input className={styles.input} type="text" placeholder="검색" />
-          <button className={styles.search__btn}>
-            <i className="fas fa-search"></i>
-          </button>
+        <form className={styles.form}>
+          <div className={styles.inputWrapper}>
+            <input className={styles.input} type="text" placeholder="검색" />
+            <i className="fas fa-keyboard"></i>
+            <button className={styles.search__btn}>
+              <i className="fas fa-search"></i>
+            </button>
+          </div>
         </form>
       </div>
       <div className={styles.buttons}>
