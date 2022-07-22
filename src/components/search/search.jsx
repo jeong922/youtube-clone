@@ -1,18 +1,31 @@
-import styles from './navbar.module.css';
+import { useRef } from 'react';
+import styles from './search.module.css';
 
-function Navbar() {
+function Search({ onSearch }) {
+  const inputRef = useRef();
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const value = inputRef.current.value;
+    onSearch(value);
+  };
+
   return (
-    <nav className={styles.navbar}>
+    <header className={styles.header}>
       <div className={styles.logo} id="logo">
-        <i className="fab fa-youtube"></i>
-        <span className={styles.title}>YouTube</span>
+        <img src="./images/logo.png" alt="" />
+        <h1 className={styles.title}>YouTube</h1>
       </div>
       <div className={styles.search} id="search">
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={(e) => handleSearch(e)}>
           <div className={styles.inputWrapper}>
-            <input className={styles.input} type="text" placeholder="검색" />
+            <input
+              ref={inputRef}
+              className={styles.input}
+              type="text"
+              placeholder="검색"
+            />
             <i className="fas fa-keyboard"></i>
-            <button className={styles.search__btn}>
+            <button className={styles.search__btn} type="submit">
               <i className="fas fa-search"></i>
             </button>
           </div>
@@ -33,8 +46,8 @@ function Navbar() {
           {/* <img src="" alt="아바타 이미지"/> */}
         </button>
       </div>
-    </nav>
+    </header>
   );
 }
 
-export default Navbar;
+export default Search;

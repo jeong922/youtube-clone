@@ -1,6 +1,6 @@
-.navbar {
-  height: 56px;
-  padding: 0 16px;
+.header {
+  height: 4rem;
+  padding: 1em 2em;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -8,13 +8,13 @@
 }
 
 .logo {
-  color: #ff0000;
+  display: flex;
+  align-items: center;
   cursor: pointer;
-  font-size: 24px;
 }
 
 .title {
-  margin: 5px;
+  margin-left: 0.2em;
   color: white;
   font-weight: 600;
 }

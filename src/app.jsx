@@ -1,12 +1,26 @@
+import { useEffect, useState } from 'react';
 import './app.css';
-import Contants from './components/contants';
-import Navbar from './components/navbar/navbar';
+import Search from './components/search/search';
+import VideoList from './components/video_list/video_list';
 
-function App() {
+function App({ youtube }) {
+  const [videos, setVideos] = useState([]);
+  const search = (query) => {
+    youtube
+      .search(query) //
+      .then((videos) => setVideos(videos));
+  };
+
+  useEffect(() => {
+    youtube
+      .mostPopular() //
+      .then((videos) => setVideos(videos));
+  }, []);
+
   return (
     <>
-      <Navbar />
-      <Contants />
+      <Search onSearch={search} />
+      <VideoList videos={videos} />
     </>
   );
 }
