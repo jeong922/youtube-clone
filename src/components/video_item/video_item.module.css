@@ -1,6 +1,16 @@
+/* .container {
+  width: 20%;
+  padding: 0.3em;
+} */
+
 .video {
+  cursor: pointer;
+  transition: transform 250ms ease-in;
 }
 
+.video:hover {
+  transform: scale(1.02);
+}
 .thumbnail {
   text-align: center;
 }
@@ -26,7 +36,7 @@
   margin-right: 10px;
 }
 
-.info {
+.metadata {
   display: flex;
   flex-direction: column;
 }
