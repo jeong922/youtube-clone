@@ -2,7 +2,6 @@ import styles from './video_item.module.css';
 
 function VideoItem({ video, onVideoClick, display }) {
   const displayType = display === 'list' ? styles.list : styles.grid;
-
   return (
     <li
       className={`${styles.container} `}
