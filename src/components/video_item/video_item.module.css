@@ -1,21 +1,30 @@
-/* .container {
-  width: 20%;
+.container {
   padding: 0.3em;
-} */
+}
 
 .video {
   cursor: pointer;
   transition: transform 250ms ease-in;
 }
 
+.video.list {
+  display: flex;
+}
+
+.video.grid {
+}
+
 .video:hover {
   transform: scale(1.02);
 }
+
 .thumbnail {
   text-align: center;
 }
 
-.thumbnail_img {
+.thumbnail_img.list {
+  width: 200px;
+  margin-right: 10px;
   background-color: #ffffff1a;
 }
 
