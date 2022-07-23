@@ -15,6 +15,7 @@
 
 .tag {
   color: #3ea6ff;
+  margin-right: 10px;
 }
 
 .info {
@@ -73,4 +74,8 @@
 .channel_info {
   display: flex;
   flex-direction: column;
+}
+
+.description {
+  white-space: pre-wrap;
 }

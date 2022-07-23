@@ -68,7 +68,7 @@ function VideoDetail({ video }) {
             {video.snippet.channelTitle}
           </span>
           <span></span>
-          <p className={styles.description}>{video.snippet.description}</p>
+          <pre className={styles.description}>{video.snippet.description}</pre>
         </div>
       </div>
     </div>
