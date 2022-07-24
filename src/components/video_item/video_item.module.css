@@ -11,8 +11,8 @@
   display: flex;
 }
 
-.video.grid {
-}
+/* .video.grid {
+} */
 
 .video:hover {
   transform: scale(1.02);
@@ -24,6 +24,7 @@
 
 .thumbnail.list {
   width: 40%;
+  height: 100%;
   margin-right: 10px;
   background-color: #ffffff1a;
 }

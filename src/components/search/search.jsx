@@ -8,12 +8,11 @@ function Search({ onSearch }) {
     const value = inputRef.current.value;
     onSearch(value);
   };
-  console.log('search');
 
   return (
     <header className={styles.header}>
       <div className={styles.logo} id="logo">
-        <img src="./images/logo.png" alt="" />
+        <img className={styles.youtube} src="./images/logo.png" alt="" />
         <h1 className={styles.title}>YouTube</h1>
       </div>
       <div className={styles.search} id="search">
