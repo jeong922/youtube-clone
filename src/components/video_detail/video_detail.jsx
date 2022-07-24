@@ -27,31 +27,31 @@ function VideoDetail({ video }) {
           </div>
           <div className={styles.buttons}>
             <button className={styles.button}>
-              <i class="far fa-thumbs-up"></i>
+              <i className="far fa-thumbs-up"></i>
               <span className={styles.button_text}>좋아요</span>
             </button>
             <button className={styles.button}>
-              <i class="far fa-thumbs-down"></i>
+              <i className="far fa-thumbs-down"></i>
               <span className={styles.button_text}>싫어요</span>
             </button>
             <button className={styles.button}>
-              <i class="fas fa-share"></i>
+              <i className="fas fa-share"></i>
               <span className={styles.button_text}>공유</span>
             </button>
             <button className={styles.button}>
-              <i class="fas fa-download"></i>
+              <i className="fas fa-download"></i>
               <span className={styles.button_text}>오프라인 저장</span>
             </button>
             <button className={styles.button}>
-              <i class="fas fa-cut"></i>
+              <i className="fas fa-cut"></i>
               <span className={styles.button_text}>클립</span>
             </button>
             <button className={styles.button}>
-              <i class="fas fa-plus"></i>
+              <i className="fas fa-plus"></i>
               <span className={styles.button_text}>저장</span>
             </button>
             <button className={styles.button}>
-              <i class="fas fa-ellipsis-h"></i>
+              <i className="fas fa-ellipsis-h"></i>
               <span className={styles.button_text}></span>
             </button>
           </div>
