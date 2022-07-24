@@ -1,20 +1,25 @@
+import React from 'react';
 import styles from './video_detail.module.css';
 
 function VideoDetail({ video }) {
-  console.log(video);
   return (
     <div className={styles.container}>
       <iframe
         className={styles.video}
-        src={`https://www.youtube.com/embed/${video.id}?autoplay=1&mute=0&playsinline=0`}
+        type="text/html"
+        title="youtube video player"
+        src={`https://www.youtube.com/embed/${video.id}?autoplay=1&mute=0`}
         allow="autoplay"
         frameBorder="0"
+        allowFullScreen
       ></iframe>
       <div className={styles.tags}>
         {video.snippet.tags &&
           video.snippet.tags
             .slice(0, 6)
-            .map((tag) => <span className={styles.tag}>{`#${tag}`}</span>)}
+            .map((tag) => (
+              <span key={tag} className={styles.tag}>{`#${tag}`}</span>
+            ))}
       </div>
 
       <div className={styles.contents_info}>
@@ -75,4 +80,4 @@ function VideoDetail({ video }) {
   );
 }
 
-export default VideoDetail;
+export default React.memo(VideoDetail);

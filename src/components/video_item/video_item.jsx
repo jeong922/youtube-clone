@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './video_item.module.css';
 
 function VideoItem({ video, onVideoClick, display }) {
@@ -42,4 +43,4 @@ function VideoItem({ video, onVideoClick, display }) {
   );
 }
 
-export default VideoItem;
+export default React.memo(VideoItem);

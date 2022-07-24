@@ -8,6 +8,7 @@ function Search({ onSearch }) {
     const value = inputRef.current.value;
     onSearch(value);
   };
+  console.log('search');
 
   return (
     <header className={styles.header}>
