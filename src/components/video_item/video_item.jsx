@@ -11,13 +11,13 @@ function VideoItem({ video, onVideoClick, display }) {
       }}
     >
       <div className={`${styles.video} ${displayType}`}>
-        <div className={styles.thumbnail}>
-          <img
-            className={`${styles.thumbnail_img} ${displayType}`}
-            src={video.snippet.thumbnails.medium.url}
-            alt="video thumbnail"
-          />
-        </div>
+        {/* <div className={styles.thumbnail}> */}
+        <img
+          className={`${styles.thumbnail} ${displayType}`}
+          src={video.snippet.thumbnails.medium.url}
+          alt="video thumbnail"
+        />
+        {/* </div> */}
         <div className={styles.details}>
           <div className={styles.wrapper}>
             <div className={styles.channel_thumbnail}>
