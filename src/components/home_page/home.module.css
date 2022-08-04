@@ -1,14 +1,15 @@
 .content {
-  margin-top: 4rem;
-  margin-left: 72px;
-  padding: 2rem;
+  display: flex;
 }
 
-/* .detail {
+.detail {
   flex: 1 1 70%;
 }
 
 .list {
+  /* margin-top: 4rem;
+  margin-left: 72px;
+  padding: 2rem; */
   flex: 1 1 30%;
 }
 
@@ -16,4 +17,4 @@
   .content {
     flex-direction: column;
   }
-} */
+}

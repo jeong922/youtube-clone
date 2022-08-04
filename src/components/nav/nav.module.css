@@ -1,0 +1,35 @@
+@value backgroundDarkGray, backgroundLightGray,fontColor from '../../common/colors.css';
+
+.nav {
+  background-color: backgroundDarkGray;
+  position: fixed;
+  top: 4rem;
+  left: 0;
+  bottom: 0;
+  width: 72px;
+}
+
+.li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 0 14px;
+  cursor: pointer;
+}
+
+.li:hover {
+  background-color: backgroundLightGray;
+}
+
+.svg {
+  height: 24px;
+  width: 24px;
+  fill: fontColor;
+  margin-bottom: 6px;
+}
+
+.span {
+  font-size: 10px;
+  text-overflow: ellipsis;
+}

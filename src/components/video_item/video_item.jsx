@@ -1,19 +1,26 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './video_item.module.css';
 
-function VideoItem({ video, onVideoClick, display }) {
-  const displayType = display === 'list' ? styles.list : styles.grid;
+function VideoItem({ video }) {
+  const navigate = useNavigate();
+
+  const onClick = (id) => {
+    navigate(`/watch?v=${id}`);
+  };
+
   return (
     <li
       className={`${styles.container} `}
       onClick={() => {
-        onVideoClick(video);
+        // onVideoClick(video);
+        onClick(video.id);
       }}
     >
-      <div className={`${styles.video} ${displayType}`}>
+      <div className={`${styles.video}`}>
         {/* <div className={styles.thumbnail}> */}
         <img
-          className={`${styles.thumbnail} ${displayType}`}
+          className={`${styles.thumbnail}`}
           src={video.snippet.thumbnails.medium.url}
           alt="video thumbnail"
         />

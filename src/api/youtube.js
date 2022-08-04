@@ -8,7 +8,19 @@ class Youtube {
       params: {
         part: 'snippet',
         chart: 'mostPopular',
-        maxResults: 25,
+        maxResults: 30,
+        regionCode: 'kr',
+      },
+    });
+    return response.data.items;
+  }
+
+  async detail(videoId) {
+    const response = await this.youtube.get('videos', {
+      params: {
+        part: 'snippet',
+        regionCode: 'kr',
+        id: videoId,
       },
     });
     return response.data.items;
@@ -18,7 +30,7 @@ class Youtube {
     const response = await this.youtube.get('search', {
       params: {
         part: 'snippet',
-        maxResults: 25,
+        maxResults: 30,
         type: 'video',
         q: query,
       },

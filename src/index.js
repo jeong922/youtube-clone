@@ -9,11 +9,14 @@ import axios from 'axios';
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 const httpClient = axios.create({
   baseURL: 'https://youtube.googleapis.com/youtube/v3',
   params: { key: API_KEY },
 });
+
 const youtube = new Youtube(httpClient);
+
 root.render(
   <React.StrictMode>
     <App youtube={youtube} />
