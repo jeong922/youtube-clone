@@ -9,6 +9,7 @@ const Nav = () => {
   const goHome = () => {
     navigate('/');
   };
+
   return (
     <nav className={styles.nav}>
       <ul>

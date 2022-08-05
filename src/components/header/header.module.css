@@ -11,6 +11,8 @@
   align-items: center;
   justify-content: space-between;
   background-color: backgroundDarkGray;
+  z-index: 2;
+  font-family: 'Oswald', sans-serif;
 }
 
 .wrapper {
