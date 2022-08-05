@@ -1,38 +1,54 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useLocation, useMatch, useNavigate } from 'react-router-dom';
 import styles from './video_item.module.css';
 
-function VideoItem({ video }) {
+function VideoItem({ video, youtube }) {
   const navigate = useNavigate();
+  const [channelInfo, setChannelInfo] = useState([]);
+  const location = useLocation();
+  console.log(location);
+  const displayType =
+    location.pathname === '/watch' ? styles.row : styles.column;
 
   const onClick = (id) => {
     navigate(`/watch?v=${id}`);
   };
 
+  useEffect(() => {
+    if (video) {
+      youtube
+        .getChannelInfo(video.snippet.channelId) //
+        .then((result) => setChannelInfo(result[0]));
+    }
+  }, [youtube, video]);
+
   return (
     <li
-      className={`${styles.container} `}
+      className={`${styles.container}`}
       onClick={() => {
-        // onVideoClick(video);
         onClick(video.id);
       }}
     >
-      <div className={`${styles.video}`}>
+      <div className={`${styles.video} ${displayType}`}>
         {/* <div className={styles.thumbnail}> */}
         <img
-          className={`${styles.thumbnail}`}
+          className={`${styles.thumbnail} ${displayType}`}
           src={video.snippet.thumbnails.medium.url}
           alt="video thumbnail"
         />
         {/* </div> */}
         <div className={styles.details}>
           <div className={styles.wrapper}>
-            <div className={styles.channel_thumbnail}>
-              {/* <img src="" alt="" /> */}
-            </div>
+            {/* {channelInfo && (
+              <img
+                className={styles.channel_thumbnail}
+                src={channelInfo.snippet.thumbnails.default.url}
+                alt="channel"
+              />
+            )} */}
           </div>
           <div className={styles.metadata}>
-            <span className={styles.title}>
+            <span className={`${styles.title} ${displayType}`}>
               {video.snippet.title.length > 60
                 ? `${video.snippet.title.slice(0, 60)}...`
                 : video.snippet.title}

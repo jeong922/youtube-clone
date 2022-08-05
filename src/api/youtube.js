@@ -3,7 +3,7 @@ class Youtube {
     this.youtube = httpClient;
   }
 
-  async mostPopular() {
+  async getMostPopular() {
     const response = await this.youtube.get('videos', {
       params: {
         part: 'snippet',
@@ -15,12 +15,22 @@ class Youtube {
     return response.data.items;
   }
 
-  async detail(videoId) {
+  async getDetail(videoId) {
     const response = await this.youtube.get('videos', {
       params: {
         part: 'snippet',
         regionCode: 'kr',
         id: videoId,
+      },
+    });
+    return response.data.items;
+  }
+
+  async getChannelInfo(channelId) {
+    const response = await this.youtube.get('channels', {
+      params: {
+        part: 'snippet',
+        id: channelId,
       },
     });
     return response.data.items;
