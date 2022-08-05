@@ -2,13 +2,12 @@ import { useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './header.module.css';
 
-function Header({ onSearch }) {
+function Header() {
   const inputRef = useRef();
   const navigate = useNavigate();
   const handleSearch = (e) => {
     e.preventDefault();
     const value = inputRef.current.value;
-    onSearch(value);
     navigate(`/result?search_query=${value}`);
   };
 

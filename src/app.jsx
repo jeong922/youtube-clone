@@ -7,10 +7,8 @@ import Search from './components/search/search';
 import VideoDetail from './components/video_detail/video_detail';
 
 function App({ youtube }) {
-  const [videos, setVideos] = useState([]);
   // const search = useCallback(
   //   (query) => {
-  //     // setSelectedVideo(null);
   //     youtube
   //       .search(query) //
   //       .then((videos) => setVideos(videos));
@@ -18,11 +16,13 @@ function App({ youtube }) {
   //   [youtube]
   // );
 
+  // console.log(videos);
+
   return (
     <div className={styles.app}>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
-        {/* <Header onSearch={search} /> */}
         <Header />
+        {/* <Header /> */}
         <div className={styles.content}>
           <Routes>
             <Route path="/" element={<Home youtube={youtube} />}></Route>

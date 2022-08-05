@@ -1,19 +1,37 @@
 import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './nav.module.css';
 
 const Nav = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const homePathname = location.pathname;
+  const goHome = () => {
+    navigate('/');
+  };
   return (
     <nav className={styles.nav}>
       <ul>
-        <li className={styles.li}>
-          <svg
-            className={styles.svg}
-            viewBox="0 0 24 24"
-            preserveAspectRatio="xMidYMid meet"
-            focusable="false"
-          >
-            <path d="M12,4.33l7,6.12V20H15V14H9v6H5V10.45l7-6.12M12,3,4,10V21h6V15h4v6h6V10L12,3Z"></path>
-          </svg>
+        <li className={styles.li} onClick={goHome}>
+          {homePathname === '/' ? (
+            <svg
+              className={styles.svg}
+              viewBox="0 0 24 24"
+              preserveAspectRatio="xMidYMid meet"
+              focusable="false"
+            >
+              <path d="M4,10V21h6V15h4v6h6V10L12,3Z"></path>
+            </svg>
+          ) : (
+            <svg
+              className={styles.svg}
+              viewBox="0 0 24 24"
+              preserveAspectRatio="xMidYMid meet"
+              focusable="false"
+            >
+              <path d="M12,4.33l7,6.12V20H15V14H9v6H5V10.45l7-6.12M12,3,4,10V21h6V15h4v6h6V10L12,3Z"></path>
+            </svg>
+          )}
           <span className={styles.span}>홈</span>
         </li>
         <li className={styles.li}>

@@ -6,7 +6,6 @@ function VideoItem({ video, youtube }) {
   const navigate = useNavigate();
   const [channelInfo, setChannelInfo] = useState([]);
   const location = useLocation();
-  console.log(location);
   const displayType =
     location.pathname === '/watch' ? styles.row : styles.column;
 
