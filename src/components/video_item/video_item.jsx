@@ -4,7 +4,7 @@ import styles from './video_item.module.css';
 
 function VideoItem({ video, youtube }) {
   const navigate = useNavigate();
-  const [channelInfo, setChannelInfo] = useState([]);
+  const [channelInfo, setChannelInfo] = useState();
   const location = useLocation();
   const displayType =
     location.pathname === '/watch' ? styles.row : styles.column;
@@ -12,6 +12,8 @@ function VideoItem({ video, youtube }) {
   const onClick = (id) => {
     navigate(`/watch?v=${id}`);
   };
+
+  console.log(video.snippet.channelId);
 
   useEffect(() => {
     if (video) {
@@ -38,13 +40,13 @@ function VideoItem({ video, youtube }) {
         {/* </div> */}
         <div className={styles.details}>
           <div className={styles.wrapper}>
-            {/* {channelInfo && (
+            {channelInfo && (
               <img
                 className={styles.channel_thumbnail}
                 src={channelInfo.snippet.thumbnails.default.url}
                 alt="channel"
               />
-            )} */}
+            )}
           </div>
           <div className={styles.metadata}>
             <span className={`${styles.title} ${displayType}`}>

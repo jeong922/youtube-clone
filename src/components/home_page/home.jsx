@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import styles from './home.module.css';
 import VideoList from '../video_list/video_list';
 import Nav from '../nav/nav';
+import { useLocation } from 'react-router-dom';
 
 const Home = ({ youtube }) => {
   const [videos, setVideos] = useState([]);
-
   useEffect(() => {
     youtube
       .getMostPopular() //

@@ -1,4 +1,3 @@
-import { useCallback, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import styles from './app.module.css';
 import Header from './components/header/header';
@@ -7,22 +6,10 @@ import Search from './components/search/search';
 import VideoDetail from './components/video_detail/video_detail';
 
 function App({ youtube }) {
-  // const search = useCallback(
-  //   (query) => {
-  //     youtube
-  //       .search(query) //
-  //       .then((videos) => setVideos(videos));
-  //   },
-  //   [youtube]
-  // );
-
-  // console.log(videos);
-
   return (
     <div className={styles.app}>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Header />
-        {/* <Header /> */}
         <div className={styles.content}>
           <Routes>
             <Route path="/" element={<Home youtube={youtube} />}></Route>

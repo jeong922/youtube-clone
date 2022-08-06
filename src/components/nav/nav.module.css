@@ -33,3 +33,9 @@
   font-size: 10px;
   text-overflow: ellipsis;
 }
+
+@media screen and (max-width: 64rem) {
+  .nav {
+    display: none;
+  }
+}

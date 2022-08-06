@@ -16,10 +16,10 @@ const Search = ({ youtube }) => {
   }, [youtube, keyword]);
 
   return (
-    <div>
+    <>
       <Nav />
       <VideoList videos={videos} youtube={youtube} />
-    </div>
+    </>
   );
 };
 

@@ -2,19 +2,6 @@
   display: flex;
 }
 
-.detail {
-  flex: 1 1 70%;
-}
-
 .list {
-  /* margin-top: 4rem;
-  margin-left: 72px;
-  padding: 2rem; */
   flex: 1 1 30%;
-}
-
-@media screen and (max-width: 64rem) {
-  .content {
-    flex-direction: column;
-  }
 }

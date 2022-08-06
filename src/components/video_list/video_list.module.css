@@ -2,6 +2,21 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, auto));
   gap: 20px;
+
   /* display: flex;
   flex-wrap: wrap; */
+}
+
+.videos.none {
+  margin-left: 0;
+}
+
+.videos.margin {
+  margin-left: 74px;
+}
+
+@media screen and (max-width: 64rem) {
+  .videos.margin {
+    margin-left: 0;
+  }
 }
