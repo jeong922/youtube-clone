@@ -38,17 +38,26 @@
   margin-top: 0.6em;
 }
 
-.wrapper {
-  width: 15%;
-  min-width: 40px;
+.details.row {
+  display: flex;
+  margin-top: 0;
 }
 
-.channel_thumbnail {
+.channelThumbnail {
   width: 36px;
   height: 36px;
   background-color: #6d6969fa;
   border-radius: 50%;
   margin-right: 10px;
+}
+
+.channelThumbnail.row {
+  display: none;
+}
+
+.metadata {
+  display: flex;
+  flex-direction: column;
 }
 
 .metadata {
@@ -59,6 +68,7 @@
 .title {
   font-size: 1em;
   font-weight: 600;
+  margin-bottom: 5px;
 }
 
 .title.row {

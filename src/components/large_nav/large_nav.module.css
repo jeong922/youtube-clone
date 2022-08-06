@@ -1,0 +1,96 @@
+@value backgroundDarkGray, backgroundLightGray,fontColor from '../../common/colors.css';
+
+.container {
+  /* position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5); */
+}
+
+.header {
+  height: 70px;
+  width: 240px;
+  padding: 1em 2em;
+  padding-left: 1em;
+  display: flex;
+  align-items: center;
+  background-color: backgroundDarkGray;
+  z-index: 2;
+  font-family: 'Oswald', sans-serif;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.guideBtn {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.youtube {
+  height: 35px;
+}
+
+.title {
+  font-size: 28px;
+  margin-left: 0.2em;
+  color: white;
+  font-weight: 600;
+}
+
+/*  */
+.nav {
+  background-color: backgroundDarkGray;
+  left: 0;
+  bottom: 0;
+  width: 240px;
+  height: 100vh;
+}
+
+.li {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.li:hover {
+  background-color: backgroundLightGray;
+}
+
+.guideBtnSvg {
+  height: 24px;
+  fill: fontColor;
+}
+
+.svg {
+  height: 24px;
+  width: 24px;
+  fill: fontColor;
+  margin-right: 10px;
+}
+
+.youtubeMusic {
+}
+
+.span {
+}

@@ -1,27 +1,20 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import VideoList from '../video_list/video_list';
 import styles from './video_detail.module.css';
 
-function VideoDetail({ youtube }) {
+function VideoDetail({ videos, youtube }) {
   const location = useLocation();
   const id = new URLSearchParams(location.search).get('v');
   const [video, setVideo] = useState();
   const [channelInfo, setChannelInfo] = useState();
-  const [videos, setVideos] = useState([]);
-
-  useEffect(() => {
-    youtube
-      .getMostPopular() //
-      .then((videos) => setVideos(videos));
-  }, [youtube]);
 
   // 비디오 디테일 정보 받아오기
   useEffect(() => {
     youtube
       .getDetail(id) //
       .then((result) => setVideo(result[0]));
-  }, []);
+  }, [youtube, id]);
 
   //채널 썸네일 받아오기
   useEffect(() => {
@@ -31,7 +24,7 @@ function VideoDetail({ youtube }) {
         .getChannelInfo(channelId) //
         .then((result) => setChannelInfo(result[0]));
     }
-  }, [video]);
+  }, [youtube, video]);
 
   return (
     <div className={styles.container}>
@@ -155,14 +148,14 @@ function VideoDetail({ youtube }) {
 
           <div className={styles.wrapper}>
             <div className={styles.channel}>
-              {channelInfo && (
-                <div className={styles.channel_thumbnail}>
-                  <img
-                    className={styles.channel_thumbnail}
-                    src={channelInfo.snippet.thumbnails.default.url}
-                    alt="channel thumbnail"
-                  />
-                </div>
+              {channelInfo ? (
+                <img
+                  className={styles.channelThumbnail}
+                  src={channelInfo.snippet.thumbnails.default.url}
+                  alt="channel thumbnail"
+                />
+              ) : (
+                <div className={styles.channelThumbnail}></div>
               )}
             </div>
             <div className={styles.channel_info}>

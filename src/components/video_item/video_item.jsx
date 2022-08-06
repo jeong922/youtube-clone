@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useMatch, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './video_item.module.css';
 
 function VideoItem({ video, youtube }) {
@@ -13,12 +13,11 @@ function VideoItem({ video, youtube }) {
     navigate(`/watch?v=${id}`);
   };
 
-  console.log(video.snippet.channelId);
-
   useEffect(() => {
     if (video) {
+      const channelId = video.snippet.channelId;
       youtube
-        .getChannelInfo(video.snippet.channelId) //
+        .getChannelInfo(channelId) //
         .then((result) => setChannelInfo(result[0]));
     }
   }, [youtube, video]);
@@ -31,23 +30,20 @@ function VideoItem({ video, youtube }) {
       }}
     >
       <div className={`${styles.video} ${displayType}`}>
-        {/* <div className={styles.thumbnail}> */}
         <img
           className={`${styles.thumbnail} ${displayType}`}
           src={video.snippet.thumbnails.medium.url}
           alt="video thumbnail"
         />
-        {/* </div> */}
-        <div className={styles.details}>
-          <div className={styles.wrapper}>
-            {channelInfo && (
-              <img
-                className={styles.channel_thumbnail}
-                src={channelInfo.snippet.thumbnails.default.url}
-                alt="channel"
-              />
-            )}
-          </div>
+        <div className={`${styles.details} ${displayType}`}>
+          {channelInfo && (
+            <img
+              className={`${styles.channelThumbnail} ${displayType}`}
+              src={channelInfo.snippet.thumbnails.default.url}
+              alt="channel"
+            />
+          )}
+
           <div className={styles.metadata}>
             <span className={`${styles.title} ${displayType}`}>
               {video.snippet.title.length > 60

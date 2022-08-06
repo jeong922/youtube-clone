@@ -6,6 +6,7 @@ function VideoList({ videos, youtube }) {
   const location = useLocation();
   const displayType =
     location.pathname === '/watch' ? styles.none : styles.margin;
+
   return (
     <ul className={`${styles.videos} ${displayType}`}>
       {videos.map((video) => (

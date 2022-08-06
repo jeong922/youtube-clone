@@ -3,11 +3,8 @@
   padding: 30px;
 }
 
-@media screen and (max-width: 64rem) {
+/* @media screen and (max-width: 64rem) {
   .container {
     flex-direction: column;
   }
-  .content {
-    padding: 30px 0px;
-  }
-}
+} */
