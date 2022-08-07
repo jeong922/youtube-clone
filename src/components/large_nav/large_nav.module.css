@@ -1,12 +1,6 @@
 @value backgroundDarkGray, backgroundLightGray,fontColor from '../../common/colors.css';
 
 .container {
-  /* position: fixed;
-  width: 100vw;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  background-color: rgba(0, 0, 0, 0.5); */
 }
 
 .header {

@@ -26,6 +26,10 @@ function VideoDetail({ videos, youtube }) {
     }
   }, [youtube, video]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className={styles.container}>
       {video && (

@@ -141,8 +141,45 @@
   z-index: 2;
 }
 
+.smallSearch {
+  display: none;
+}
+
+.smallForm {
+  position: absolute;
+  width: 250px;
+  background-color: #363636b9;
+  color: #aaaaaa;
+  border-radius: 20px;
+  border: 1px solid #f1f1f183;
+  text-align: center;
+  z-index: 1;
+}
+
+.smallInput {
+  height: 34px;
+  width: 75%;
+  padding: 2px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  color: #f1f1f1;
+}
+
+.smallBtn {
+  position: relative;
+  z-index: 3;
+}
+
 @media screen and (max-width: 48rem) {
   .search {
     display: none;
+  }
+  .smallSearch {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
   }
 }
