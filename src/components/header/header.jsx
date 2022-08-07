@@ -71,7 +71,10 @@ function Header({ onSearch }) {
             onSubmit={(e) => handleSearch(e)}
           >
             {showSearch && (
-              <button className={styles.button} onClick={hidden}>
+              <button
+                className={`${styles.button} ${styles.btn}`}
+                onClick={hidden}
+              >
                 <svg
                   className={styles.svg}
                   viewBox="0 0 24 24"

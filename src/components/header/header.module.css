@@ -174,4 +174,9 @@
   .showSearchBtn {
     display: block;
   }
+
+  .input.display {
+    height: 100%;
+    width: 60%;
+  }
 }
