@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import LargeNav from '../large_nav/large_nav';
 import styles from './header.module.css';
@@ -6,6 +6,7 @@ import styles from './header.module.css';
 function Header({ onSearch }) {
   const [isLarge, setIsLarge] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  // const [width, setWidth] = useState('');
   const inputRef = useRef();
   const navigate = useNavigate();
   const handleSearch = (e) => {
@@ -24,10 +25,23 @@ function Header({ onSearch }) {
   };
 
   const searchClick = () => {
-    showSearch ? setShowSearch(false) : setShowSearch(true);
+    setShowSearch(true);
   };
 
+  const hidden = () => {
+    setShowSearch(false);
+  };
+
+  useLayoutEffect(() => {
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        setShowSearch(false);
+      }
+    });
+  }, []);
+
   const displayType = isLarge ? styles.show : styles.none;
+  const searchType = showSearch ? styles.display : styles.hidden;
 
   return (
     <>
@@ -50,43 +64,40 @@ function Header({ onSearch }) {
             </div>
           </Link>
         </div>
-        <div className={styles.search}>
-          <form className={styles.form} onSubmit={(e) => handleSearch(e)}>
-            <div className={styles.inputWrapper}>
-              <input
-                ref={inputRef}
-                className={styles.input}
-                type="text"
-                placeholder="검색"
-              />
-              <i className="fas fa-keyboard"></i>
-              <button className={styles.search__btn} type="submit">
-                <i className="fas fa-search"></i>
+
+        <div className={`${styles.search} ${searchType}`}>
+          <form
+            className={`${styles.form} ${searchType}`}
+            onSubmit={(e) => handleSearch(e)}
+          >
+            {showSearch && (
+              <button className={styles.button} onClick={hidden}>
+                <svg
+                  className={styles.svg}
+                  viewBox="0 0 24 24"
+                  preserveAspectRatio="xMidYMid meet"
+                  focusable="false"
+                >
+                  <path d="M21,11v1H5.64l6.72,6.72l-0.71,0.71L3.72,11.5l7.92-7.92l0.71,0.71L5.64,11H21z"></path>
+                </svg>
               </button>
-            </div>
+            )}
+            <input
+              ref={inputRef}
+              className={`${styles.input} ${searchType}`}
+              type="text"
+              placeholder="검색"
+            />
+            <i className="fas fa-keyboard"></i>
+            <button className={styles.searchBtn} type="submit">
+              <i className="fas fa-search"></i>
+            </button>
           </form>
         </div>
 
-        {/* <div className={styles.smallSearch}>
-          {showSearch && (
-            <form
-              className={styles.smallForm}
-              onSubmit={(e) => handleSearch(e)}
-            >
-              <div className={styles.smallInput}>
-                <input
-                  ref={inputRef}
-                  className={styles.input}
-                  type="text"
-                  placeholder="검색"
-                />
-                <i className="fas fa-keyboard"></i>
-              </div>
-            </form>
-          )}
+        <div className={styles.buttons}>
           <button
-            className={`${styles.button} ${styles.smallBtn}`}
-            type="submit"
+            className={`${styles.button} ${styles.showSearchBtn}`}
             onClick={searchClick}
           >
             <svg
@@ -98,9 +109,6 @@ function Header({ onSearch }) {
               <path d="M20.87,20.17l-5.59-5.59C16.35,13.35,17,11.75,17,10c0-3.87-3.13-7-7-7s-7,3.13-7,7s3.13,7,7,7c1.75,0,3.35-0.65,4.58-1.71 l5.59,5.59L20.87,20.17z M10,16c-3.31,0-6-2.69-6-6s2.69-6,6-6s6,2.69,6,6S13.31,16,10,16z"></path>
             </svg>
           </button>
-        </div> */}
-
-        <div className={styles.buttons}>
           <button className={styles.button}>
             <svg viewBox="0 0 24 24" focusable="false" className={styles.svg}>
               <path d="M14,13h-3v3H9v-3H6v-2h3V8h2v3h3V13z M17,6H3v12h14v-6.39l4,1.83V8.56l-4,1.83V6 M18,5v3.83L22,7v8l-4-1.83V19H2V5H18L18,5 z"></path>
