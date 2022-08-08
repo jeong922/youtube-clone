@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import styles from './app.module.css';
 import Header from './components/header/header';
@@ -16,6 +16,12 @@ function App({ youtube }) {
     },
     [youtube]
   );
+
+  useEffect(() => {
+    youtube
+      .getMostPopular() //
+      .then((videos) => setVideos(videos));
+  }, [youtube]);
 
   return (
     <div className={styles.app}>
