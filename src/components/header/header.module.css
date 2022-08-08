@@ -148,10 +148,9 @@
 .search.display {
   display: block;
   position: absolute;
-  right: 20;
-  width: 95%;
+  left: 0;
+  width: 100%;
   height: 50px;
-  max-width: 768px;
   z-index: 4;
 }
 
