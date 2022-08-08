@@ -8,7 +8,7 @@ class Youtube {
       params: {
         part: 'snippet',
         chart: 'mostPopular',
-        maxResults: 15,
+        maxResults: 30,
         regionCode: 'kr',
       },
     });
@@ -40,7 +40,7 @@ class Youtube {
     const response = await this.youtube.get('search', {
       params: {
         part: 'snippet',
-        maxResults: 15,
+        maxResults: 30,
         type: 'video',
         q: query,
       },

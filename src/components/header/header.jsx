@@ -66,25 +66,25 @@ function Header({ onSearch }) {
         </div>
 
         <div className={`${styles.search} ${searchType}`}>
+          {showSearch && (
+            <button
+              className={`${styles.button} ${styles.btn}`}
+              onClick={hidden}
+            >
+              <svg
+                className={styles.svg}
+                viewBox="0 0 24 24"
+                preserveAspectRatio="xMidYMid meet"
+                focusable="false"
+              >
+                <path d="M21,11v1H5.64l6.72,6.72l-0.71,0.71L3.72,11.5l7.92-7.92l0.71,0.71L5.64,11H21z"></path>
+              </svg>
+            </button>
+          )}
           <form
             className={`${styles.form} ${searchType}`}
             onSubmit={(e) => handleSearch(e)}
           >
-            {showSearch && (
-              <button
-                className={`${styles.button} ${styles.btn}`}
-                onClick={hidden}
-              >
-                <svg
-                  className={styles.svg}
-                  viewBox="0 0 24 24"
-                  preserveAspectRatio="xMidYMid meet"
-                  focusable="false"
-                >
-                  <path d="M21,11v1H5.64l6.72,6.72l-0.71,0.71L3.72,11.5l7.92-7.92l0.71,0.71L5.64,11H21z"></path>
-                </svg>
-              </button>
-            )}
             <input
               ref={inputRef}
               className={`${styles.input} ${searchType}`}
