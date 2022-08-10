@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './video_item.module.css';
 
 function VideoItem({ video, youtube }) {
+  console.log(video);
   const navigate = useNavigate();
   const [channelInfo, setChannelInfo] = useState();
   const location = useLocation();
@@ -21,6 +22,19 @@ function VideoItem({ video, youtube }) {
         .then((result) => setChannelInfo(result[0]));
     }
   }, [youtube, video]);
+
+  const replaceString = (str) => {
+    if (str == null) {
+      return '';
+    }
+    return str
+      .replaceAll(/&amp;/g, '&')
+      .replaceAll(/&lt;/g, '<')
+      .replaceAll(/&gt;/g, '>')
+      .replaceAll(/&quot;/g, '"')
+      .replaceAll(/&#039;/g, "'")
+      .replaceAll(/&#39;/g, "'");
+  };
 
   return (
     <li
@@ -47,8 +61,8 @@ function VideoItem({ video, youtube }) {
           <div className={styles.metadata}>
             <span className={`${styles.title} ${displayType}`}>
               {video.snippet.title.length > 60
-                ? `${video.snippet.title.slice(0, 60)}...`
-                : video.snippet.title}
+                ? `${replaceString(video.snippet.title).slice(0, 60)}...`
+                : replaceString(video.snippet.title)}
             </span>
             <span className={styles.channel_title}>
               {video.snippet.channelTitle}

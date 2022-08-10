@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import Loading from '../loading/loading';
 import Nav from '../nav/nav';
 import VideoList from '../video_list/video_list';
 import styles from './search.module.css';
 
-const Search = ({ videos, youtube }) => {
+const Search = ({ isLoading, videos, youtube }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Nav />
-      <VideoList videos={videos} youtube={youtube} />
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <VideoList videos={videos} youtube={youtube} />
+      )}
     </>
   );
 };

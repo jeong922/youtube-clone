@@ -17,7 +17,7 @@ const LargeNav = ({ setIsLarge }) => {
 
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
+      <div className={styles.header}>
         <div className={styles.wrapper}>
           <button className={styles.guideBtn} onClick={onClick}>
             <svg
@@ -29,13 +29,13 @@ const LargeNav = ({ setIsLarge }) => {
               <path d="M21,6H3V5h18V6z M21,11H3v1h18V11z M21,17H3v1h18V17z"></path>
             </svg>
           </button>
-
           <div className={styles.logo} id="logo" onClick={goHome}>
             <img className={styles.youtube} src="./images/logo.png" alt="" />
             <h1 className={styles.title}>YouTube</h1>
           </div>
         </div>
-      </header>
+      </div>
+
       <nav className={styles.nav}>
         <ul>
           <li className={styles.li} onClick={goHome}>

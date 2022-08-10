@@ -8,40 +8,58 @@ import VideoDetail from './components/video_detail/video_detail';
 
 function App({ youtube }) {
   const [videos, setVideos] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const search = useCallback(
     (query) => {
+      setIsLoading(true);
       youtube
         .search(query) //
-        .then((videos) => setVideos(videos));
+        .then((videos) => {
+          setVideos(videos);
+          setIsLoading(false);
+        });
     },
     [youtube]
   );
 
   useEffect(() => {
+    setIsLoading(true);
     youtube
       .getMostPopular() //
-      .then((videos) => setVideos(videos));
+      .then((videos) => {
+        setVideos(videos);
+        setIsLoading(false);
+      });
   }, [youtube]);
 
   return (
-    <div className={styles.app}>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <Header onSearch={search} />
-        <div className={styles.content}>
-          <Routes>
-            <Route path="/" element={<Home youtube={youtube} />}></Route>
-            <Route
-              path="/result"
-              element={<Search videos={videos} youtube={youtube} />}
-            ></Route>
-            <Route
-              path="/watch"
-              element={<VideoDetail videos={videos} youtube={youtube} />}
-            ></Route>
-          </Routes>
-        </div>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <Header onSearch={search} />
+      <div className={styles.content}>
+        <Routes>
+          <Route
+            path="/"
+            element={<Home isLoading={isLoading} youtube={youtube} />}
+          ></Route>
+          <Route
+            path="/result"
+            element={
+              <Search isLoading={isLoading} videos={videos} youtube={youtube} />
+            }
+          ></Route>
+          <Route
+            path="/watch"
+            element={
+              <VideoDetail
+                isLoading={isLoading}
+                videos={videos}
+                youtube={youtube}
+              />
+            }
+          ></Route>
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

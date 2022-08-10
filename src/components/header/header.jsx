@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import LargeNav from '../large_nav/large_nav';
 import styles from './header.module.css';
@@ -6,9 +6,10 @@ import styles from './header.module.css';
 function Header({ onSearch }) {
   const [isLarge, setIsLarge] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
-  // const [width, setWidth] = useState('');
   const inputRef = useRef();
   const navigate = useNavigate();
+  const displayType = isLarge ? styles.show : styles.none;
+  const searchType = showSearch ? styles.display : styles.hidden;
   const handleSearch = (e) => {
     e.preventDefault();
     const value = inputRef.current.value;
@@ -16,32 +17,29 @@ function Header({ onSearch }) {
     onSearch(value);
   };
 
-  const headerClick = () => {
+  const headerClick = useCallback(() => {
     setIsLarge(true);
-  };
+  }, []);
 
-  const bgClick = () => {
+  const bgClick = useCallback(() => {
     setIsLarge(false);
-  };
+  }, []);
 
-  const searchClick = () => {
+  const searchClick = useCallback(() => {
     setShowSearch(true);
-  };
+  }, []);
 
-  const hidden = () => {
+  const hidden = useCallback(() => {
     setShowSearch(false);
-  };
+  }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.addEventListener('resize', () => {
       if (window.innerWidth > 768) {
         setShowSearch(false);
       }
     });
   }, []);
-
-  const displayType = isLarge ? styles.show : styles.none;
-  const searchType = showSearch ? styles.display : styles.hidden;
 
   return (
     <>
@@ -127,6 +125,7 @@ function Header({ onSearch }) {
           </button>
         </div>
       </header>
+
       {isLarge && <div className={styles.bg} onClick={bgClick}></div>}
       <div className={`${styles.nav} ${displayType}`}>
         <LargeNav setIsLarge={setIsLarge} />

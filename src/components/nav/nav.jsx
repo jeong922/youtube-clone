@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './nav.module.css';
 
@@ -9,7 +9,6 @@ const Nav = () => {
   const goHome = () => {
     navigate('/');
   };
-
   return (
     <nav className={styles.nav}>
       <ul>
@@ -117,4 +116,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default memo(Nav);
