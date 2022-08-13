@@ -10,7 +10,7 @@ const Home = ({ youtube }) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [videos]);
+  }, []);
 
   useEffect(() => {
     setIsLoading(true);
@@ -21,10 +21,6 @@ const Home = ({ youtube }) => {
         setIsLoading(false);
       });
   }, [youtube]);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   return (
     <>
