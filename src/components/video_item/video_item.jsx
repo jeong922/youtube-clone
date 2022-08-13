@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import styles from './video_item.module.css';
 
 function VideoItem({ video, youtube }) {
-  console.log(video);
   const navigate = useNavigate();
   const [channelInfo, setChannelInfo] = useState();
   const location = useLocation();

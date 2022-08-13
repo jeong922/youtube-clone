@@ -1,14 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import LargeNav from '../large_nav/large_nav';
 import styles from './header.module.css';
 
-function Header({ onSearch }) {
-  const [isLarge, setIsLarge] = useState(false);
+function Header({ onSearch, setIsLarge }) {
   const [showSearch, setShowSearch] = useState(false);
   const inputRef = useRef();
   const navigate = useNavigate();
-  const displayType = isLarge ? styles.show : styles.none;
   const searchType = showSearch ? styles.display : styles.hidden;
   const handleSearch = (e) => {
     e.preventDefault();
@@ -17,13 +14,9 @@ function Header({ onSearch }) {
     onSearch(value);
   };
 
-  const headerClick = useCallback(() => {
+  const headerClick = () => {
     setIsLarge(true);
-  }, []);
-
-  const bgClick = useCallback(() => {
-    setIsLarge(false);
-  }, []);
+  };
 
   const searchClick = useCallback(() => {
     setShowSearch(true);
@@ -125,11 +118,6 @@ function Header({ onSearch }) {
           </button>
         </div>
       </header>
-
-      {isLarge && <div className={styles.bg} onClick={bgClick}></div>}
-      <div className={`${styles.nav} ${displayType}`}>
-        <LargeNav setIsLarge={setIsLarge} />
-      </div>
     </>
   );
 }
