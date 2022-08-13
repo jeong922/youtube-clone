@@ -9,9 +9,17 @@ function VideoList({ videos, youtube }) {
 
   return (
     <ul className={`${styles.videos} ${displayType}`}>
-      {videos.map((video) => (
-        <VideoItem key={video.id} video={video} youtube={youtube} />
-      ))}
+      {location.pathname !== '/watch' &&
+        videos.map((video) => (
+          <VideoItem key={video.id} video={video} youtube={youtube} />
+        ))}
+
+      {location.pathname === '/watch' &&
+        videos
+          .slice(0, 10)
+          .map((video) => (
+            <VideoItem key={video.id} video={video} youtube={youtube} />
+          ))}
     </ul>
   );
 }

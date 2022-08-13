@@ -60,9 +60,7 @@ function VideoItem({ video, youtube }) {
 
           <div className={styles.metadata}>
             <span className={`${styles.title} ${displayType}`}>
-              {video.snippet.title.length > 60
-                ? `${replaceString(video.snippet.title).slice(0, 60)}...`
-                : replaceString(video.snippet.title)}
+              {replaceString(video.snippet.title)}
             </span>
             <span className={styles.channel_title}>
               {video.snippet.channelTitle}
