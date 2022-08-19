@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import styles from './header.module.css';
+import { useCallback, useEffect, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import styles from "./header.module.css";
 
 function Header({ onSearch, setIsLarge }) {
   const [showSearch, setShowSearch] = useState(false);
@@ -27,7 +27,7 @@ function Header({ onSearch, setIsLarge }) {
   }, []);
 
   useEffect(() => {
-    window.addEventListener('resize', () => {
+    window.addEventListener("resize", () => {
       if (window.innerWidth > 768) {
         setShowSearch(false);
       }
@@ -113,8 +113,17 @@ function Header({ onSearch, setIsLarge }) {
               <path d="M10,20h4c0,1.1-0.9,2-2,2S10,21.1,10,20z M20,17.35V19H4v-1.65l2-1.88v-5.15c0-2.92,1.56-5.22,4-5.98V3.96 c0-1.42,1.49-2.5,2.99-1.76C13.64,2.52,14,3.23,14,3.96l0,0.39c2.44,0.75,4,3.06,4,5.98v5.15L20,17.35z M19,17.77l-2-1.88v-5.47 c0-2.47-1.19-4.36-3.13-5.1c-1.26-0.53-2.64-0.5-3.84,0.03C8.15,6.11,7,7.99,7,10.42v5.47l-2,1.88V18h14V17.77z"></path>
             </svg>
           </button>
-          <button className={`${styles.button} ${styles.avatar}`}>
-            {/* <img src="" alt="아바타 이미지"/> */}
+          <button
+            className={`${styles.button} ${styles.avatar}`}
+            onClick={() =>
+              window.open("https://github.com/jeong922/youtube-clone", "_blank")
+            }
+          >
+            <img
+              className={styles.avatar}
+              src="https://avatars.githubusercontent.com/u/93126884?v=4"
+              alt="아바타 이미지"
+            />
           </button>
         </div>
       </header>
