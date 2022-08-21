@@ -1,3 +1,5 @@
+@value backgroundLightGray, lightGrayfontColor, tagColor, bgphoto from '../../common/colors.css';
+
 .container {
   width: 100%;
   padding: 0.3em;
@@ -30,7 +32,7 @@
   width: 168px;
   height: 94px;
   margin-right: 10px;
-  background-color: #ffffff1a;
+  background-color: backgroundLightGray;
 }
 
 .details {
@@ -46,7 +48,7 @@
 .channelThumbnail {
   width: 36px;
   height: 36px;
-  background-color: #6d6969fa;
+  background-color: bgphoto;
   border-radius: 50%;
   margin-right: 10px;
 }
@@ -82,6 +84,6 @@
 
 .channel_title,
 .publishedAt {
-  color: #aaaaaa;
+  color: lightGrayfontColor;
   font-size: 0.8em;
 }

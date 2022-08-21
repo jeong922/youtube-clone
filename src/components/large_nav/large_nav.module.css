@@ -1,4 +1,4 @@
-@value backgroundDarkGray, backgroundLightGray,fontColor from '../../common/colors.css';
+@value backgroundDarkGray, backgroundLightGray, fontColor from '../../common/colors.css';
 
 .container {
 }
@@ -81,10 +81,4 @@
   width: 24px;
   fill: fontColor;
   margin-right: 10px;
-}
-
-.youtubeMusic {
-}
-
-.span {
 }

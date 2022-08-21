@@ -1,3 +1,5 @@
+@value backgroundDarkGray, backgroundLightGray, lightGrayfontColor,fontColor, tagColor, bgphoto from '../../common/colors.css';
+
 .container {
   width: 100%;
   display: flex;
@@ -33,7 +35,7 @@
 }
 
 .tag {
-  color: #3ea6ff;
+  color: tagColor;
   margin-right: 10px;
 }
 
@@ -52,7 +54,7 @@
 }
 
 .publishedAt {
-  color: #aaaaaa;
+  color: lightGrayfontColor;
   font-size: 14px;
 }
 
@@ -90,14 +92,12 @@
 }
 
 .channel {
-  /* width: 100px; */
-  /* max-width: 200px; */
 }
 
 .channelThumbnail {
   width: 48px;
   height: 48px;
-  background-color: #6d6969fa;
+  background-color: bgphoto;
   border-radius: 50%;
   margin-right: 20px;
 }
