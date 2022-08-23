@@ -16,7 +16,7 @@ function VideoList({ videos, youtube }) {
 
       {location.pathname === '/watch' &&
         videos
-          .slice(0, 10)
+          .slice(0, 20)
           .map((video) => (
             <VideoItem key={video.id} video={video} youtube={youtube} />
           ))}
