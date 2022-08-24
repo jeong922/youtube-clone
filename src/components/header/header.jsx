@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import styles from "./header.module.css";
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import styles from './header.module.css';
 
 function Header({ onSearch, setIsLarge }) {
   const [showSearch, setShowSearch] = useState(false);
@@ -27,7 +27,7 @@ function Header({ onSearch, setIsLarge }) {
   }, []);
 
   useEffect(() => {
-    window.addEventListener("resize", () => {
+    window.addEventListener('resize', () => {
       if (window.innerWidth > 768) {
         setShowSearch(false);
       }
@@ -50,7 +50,11 @@ function Header({ onSearch, setIsLarge }) {
           </button>
           <Link to="/">
             <div className={styles.logo} id="logo">
-              <img className={styles.youtube} src="./images/logo.png" alt="" />
+              <img
+                className={styles.youtube}
+                src="./images/logo.png"
+                alt="logo"
+              />
               <h1 className={styles.title}>YouTube</h1>
             </div>
           </Link>
@@ -116,7 +120,7 @@ function Header({ onSearch, setIsLarge }) {
           <button
             className={`${styles.button} ${styles.avatar}`}
             onClick={() =>
-              window.open("https://github.com/jeong922/youtube-clone", "_blank")
+              window.open('https://github.com/jeong922/youtube-clone', '_blank')
             }
           >
             <img
