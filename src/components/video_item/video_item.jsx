@@ -45,7 +45,7 @@ function VideoItem({ video, youtube }) {
       <div className={`${styles.video} ${displayType}`}>
         <img
           className={`${styles.thumbnail} ${displayType}`}
-          src={video.snippet.thumbnails.medium.url}
+          src={video.snippet.thumbnails && video.snippet.thumbnails.medium.url}
           alt="video thumbnail"
         />
         <div className={`${styles.details} ${displayType}`}>

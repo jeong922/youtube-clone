@@ -20,6 +20,10 @@
   width: 100%;
   max-width: 420px;
   margin-left: 3rem;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
 }
 
 .video {
@@ -91,9 +95,6 @@
   border-bottom: 1px solid #6d696979;
 }
 
-.channel {
-}
-
 .channelThumbnail {
   width: 48px;
   height: 48px;
@@ -114,6 +115,15 @@
 
 .description {
   white-space: pre-wrap;
+}
+
+.list {
+  background-color: backgroundDarkGray;
+  padding: 8px 12px;
+  border: 1px solid backgroundLightGray;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  display: inline-block;
 }
 
 @media screen and (max-width: 64rem) {

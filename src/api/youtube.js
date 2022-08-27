@@ -50,6 +50,21 @@ class Youtube {
       id: item.id.videoId,
     }));
   }
+
+  async getRelatedVideo(videoId) {
+    const response = await this.youtube.get('search', {
+      params: {
+        part: 'snippet',
+        maxResults: 20,
+        relatedToVideoId: videoId,
+        type: 'video',
+      },
+    });
+    return response.data.items.map((item) => ({
+      ...item,
+      id: item.id.videoId,
+    }));
+  }
 }
 
 export default Youtube;

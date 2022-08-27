@@ -15,25 +15,33 @@ function App({ youtube }) {
 
   const search = useCallback(
     (query) => {
-      setIsLoading(true);
-      youtube
-        .search(query) //
-        .then((videos) => {
-          setVideos(videos);
-          setIsLoading(false);
-        });
+      try {
+        setIsLoading(true);
+        youtube
+          .search(query) //
+          .then((videos) => {
+            setVideos(videos);
+          });
+      } catch (e) {
+        // 에러 처리
+      }
+      setIsLoading(false);
     },
     [youtube]
   );
 
   useEffect(() => {
-    setIsLoading(true);
-    youtube
-      .getMostPopular() //
-      .then((videos) => {
-        setVideos(videos);
-        setIsLoading(false);
-      });
+    try {
+      setIsLoading(true);
+      youtube
+        .getMostPopular() //
+        .then((videos) => {
+          setVideos(videos);
+        });
+    } catch (e) {
+      //에러처리
+    }
+    setIsLoading(false);
   }, [youtube]);
 
   const bgClick = () => {

@@ -4,37 +4,66 @@ import Loading from '../loading/loading';
 import VideoList from '../video_list/video_list';
 import styles from './video_detail.module.css';
 
-function VideoDetail({ videos, youtube }) {
+function VideoDetail({ videos, youtube, search }) {
   const location = useLocation();
   const id = new URLSearchParams(location.search).get('v');
   const [video, setVideo] = useState();
+  const [relatedVideo, setRelatedVideo] = useState([]);
   const [channelInfo, setChannelInfo] = useState();
-  const [isLoading, setIsLoading] = useState(false);
+  const [detailLoading, setDetailLoading] = useState(false);
+  const [channelLoading, setChannelLoading] = useState(false);
+  const [listLoading, setListLoading] = useState(false);
+
+  const isLoading = detailLoading && channelLoading && listLoading;
 
   // 비디오 디테일 정보 받아오기
   useEffect(() => {
-    setIsLoading(true);
-    youtube
-      .getDetail(id) //
-      .then((result) => {
-        setVideo(result[0]);
-        setIsLoading(false);
-      });
+    try {
+      setDetailLoading(true);
+      youtube
+        .getDetail(id) //
+        .then((result) => {
+          setVideo(result[0]);
+        });
+    } catch (e) {
+      // 에러처리
+    } finally {
+      setDetailLoading(false);
+    }
   }, [youtube, id]);
 
   //채널 썸네일 받아오기
   useEffect(() => {
-    if (video) {
-      setIsLoading(true);
-      const channelId = video.snippet.channelId;
-      youtube
-        .getChannelInfo(channelId) //
-        .then((result) => {
-          setChannelInfo(result[0]);
-          setIsLoading(false);
-        });
+    try {
+      if (video) {
+        const channelId = video.snippet.channelId;
+        youtube
+          .getChannelInfo(channelId) //
+          .then((result) => {
+            setChannelInfo(result[0]);
+          });
+      }
+      setChannelLoading(true);
+    } catch (e) {
+      // 에러처리
     }
+    setChannelLoading(false);
   }, [youtube, video]);
+
+  // 관련 영상
+  useEffect(() => {
+    try {
+      setListLoading(true);
+      youtube
+        .getRelatedVideo(id)
+        .then((result) =>
+          setRelatedVideo(result.filter((item) => item.snippet))
+        );
+    } catch (e) {
+      // 에러처리
+    }
+    setListLoading(false);
+  }, [id, youtube]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -190,9 +219,15 @@ function VideoDetail({ videos, youtube }) {
           )}
         </section>
       )}
-      <div className={styles.secondary}>
-        <VideoList videos={videos} youtube={youtube} />
-      </div>
+      {relatedVideo && (
+        <div className={styles.secondary}>
+          <div className={styles.list}>
+            <span className={styles.listTitle}>관련 콘텐츠</span>
+          </div>
+
+          <VideoList videos={relatedVideo} youtube={youtube} />
+        </div>
+      )}
     </div>
   );
 }
