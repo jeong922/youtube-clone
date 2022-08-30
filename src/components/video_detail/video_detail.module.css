@@ -79,13 +79,13 @@
 }
 
 .svg {
-  height: 24px;
   width: 24px;
+  height: 24px;
   fill: white;
 }
 
 .button_text {
-  margin-left: 0.2em;
+  margin-left: 0.2rem;
 }
 
 .wrapper {
@@ -115,6 +115,7 @@
 
 .description {
   white-space: pre-wrap;
+  word-break: break-all;
 }
 
 .list {
@@ -135,5 +136,11 @@
     width: 100%;
     max-width: 100%;
     margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 572px) {
+  .button_text {
+    display: none;
   }
 }

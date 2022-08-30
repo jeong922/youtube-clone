@@ -52,7 +52,7 @@ function Header({ onSearch, setIsLarge }) {
             <div className={styles.logo} id="logo">
               <img
                 className={styles.youtube}
-                src="./images/logo.png"
+                src={process.env.PUBLIC_URL + './images/logo.png'}
                 alt="logo"
               />
               <h1 className={styles.title}>YouTube</h1>
@@ -86,7 +86,6 @@ function Header({ onSearch, setIsLarge }) {
               type="text"
               placeholder="검색"
             />
-            <i className="fas fa-keyboard"></i>
             <button className={styles.searchBtn} type="submit">
               <i className="fas fa-search"></i>
             </button>

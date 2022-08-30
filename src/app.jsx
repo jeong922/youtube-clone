@@ -86,13 +86,7 @@ function App({ youtube }) {
             ></Route>
             <Route
               path="/watch"
-              element={
-                <VideoDetail
-                  isLoading={isLoading}
-                  videos={videos}
-                  youtube={youtube}
-                />
-              }
+              element={<VideoDetail youtube={youtube} />}
             ></Route>
           </Routes>
         </div>

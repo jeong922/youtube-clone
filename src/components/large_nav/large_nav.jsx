@@ -30,7 +30,11 @@ const LargeNav = ({ setIsLarge }) => {
             </svg>
           </button>
           <div className={styles.logo} id="logo" onClick={goHome}>
-            <img className={styles.youtube} src="./images/logo.png" alt="" />
+            <img
+              className={styles.youtube}
+              src={process.env.PUBLIC_URL + './images/logo.png'}
+              alt="logo"
+            />
             <h1 className={styles.title}>YouTube</h1>
           </div>
         </div>

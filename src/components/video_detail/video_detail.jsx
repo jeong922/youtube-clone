@@ -4,7 +4,7 @@ import Loading from '../loading/loading';
 import VideoList from '../video_list/video_list';
 import styles from './video_detail.module.css';
 
-function VideoDetail({ videos, youtube, search }) {
+function VideoDetail({ youtube }) {
   const location = useLocation();
   const id = new URLSearchParams(location.search).get('v');
   const [video, setVideo] = useState();
@@ -13,8 +13,6 @@ function VideoDetail({ videos, youtube, search }) {
   const [detailLoading, setDetailLoading] = useState(false);
   const [channelLoading, setChannelLoading] = useState(false);
   const [listLoading, setListLoading] = useState(false);
-
-  const isLoading = detailLoading && channelLoading && listLoading;
 
   // 비디오 디테일 정보 받아오기
   useEffect(() => {
@@ -25,10 +23,9 @@ function VideoDetail({ videos, youtube, search }) {
         .then((result) => {
           setVideo(result[0]);
         });
+      setDetailLoading(false);
     } catch (e) {
       // 에러처리
-    } finally {
-      setDetailLoading(false);
     }
   }, [youtube, id]);
 
@@ -36,18 +33,18 @@ function VideoDetail({ videos, youtube, search }) {
   useEffect(() => {
     try {
       if (video) {
+        setChannelLoading(true);
         const channelId = video.snippet.channelId;
         youtube
           .getChannelInfo(channelId) //
           .then((result) => {
             setChannelInfo(result[0]);
           });
+        setChannelLoading(false);
       }
-      setChannelLoading(true);
     } catch (e) {
       // 에러처리
     }
-    setChannelLoading(false);
   }, [youtube, video]);
 
   // 관련 영상
@@ -59,15 +56,17 @@ function VideoDetail({ videos, youtube, search }) {
         .then((result) =>
           setRelatedVideo(result.filter((item) => item.snippet))
         );
+      setListLoading(false);
     } catch (e) {
       // 에러처리
     }
-    setListLoading(false);
   }, [id, youtube]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
+
+  const isLoading = detailLoading && channelLoading && listLoading;
 
   return (
     <div className={styles.container}>

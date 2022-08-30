@@ -1,8 +1,5 @@
 @value backgroundDarkGray, backgroundLightGray, fontColor from '../../common/colors.css';
 
-.container {
-}
-
 .header {
   height: 70px;
   width: 240px;
@@ -38,11 +35,11 @@
 }
 
 .youtube {
-  height: 35px;
+  height: 30px;
 }
 
 .title {
-  font-size: 28px;
+  font-size: 24px;
   margin-left: 0.2em;
   color: white;
   font-weight: 600;
