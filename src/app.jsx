@@ -22,10 +22,10 @@ function App({ youtube }) {
           .then((videos) => {
             setVideos(videos);
           });
+        setIsLoading(false);
       } catch (e) {
         // 에러 처리
       }
-      setIsLoading(false);
     },
     [youtube]
   );
@@ -38,10 +38,10 @@ function App({ youtube }) {
         .then((videos) => {
           setVideos(videos);
         });
+      setIsLoading(false);
     } catch (e) {
       //에러처리
     }
-    setIsLoading(false);
   }, [youtube]);
 
   const bgClick = () => {

@@ -9,6 +9,8 @@ const Search = ({ isLoading, videos, youtube }) => {
     window.scrollTo(0, 0);
   }, []);
 
+  console.log(isLoading);
+
   return (
     <>
       <Nav />
