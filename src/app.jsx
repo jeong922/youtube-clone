@@ -15,17 +15,13 @@ function App({ youtube }) {
 
   const search = useCallback(
     (query) => {
-      try {
-        setIsLoading(true);
-        youtube
-          .search(query) //
-          .then((videos) => {
-            setVideos(videos);
-          });
-        setIsLoading(false);
-      } catch (e) {
-        // 에러 처리
-      }
+      setIsLoading(true);
+      youtube
+        .search(query) //
+        .then((videos) => {
+          setVideos(videos);
+          setIsLoading(false);
+        });
     },
     [youtube]
   );

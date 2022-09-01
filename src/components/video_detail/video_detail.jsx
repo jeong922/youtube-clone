@@ -16,57 +16,43 @@ function VideoDetail({ youtube }) {
 
   // 비디오 디테일 정보 받아오기
   useEffect(() => {
-    try {
-      setDetailLoading(true);
-      youtube
-        .getDetail(id) //
-        .then((result) => {
-          setVideo(result[0]);
-        });
-      setDetailLoading(false);
-    } catch (e) {
-      // 에러처리
-    }
+    setDetailLoading(true);
+    youtube
+      .getDetail(id) //
+      .then((result) => {
+        setVideo(result[0]);
+        setDetailLoading(false);
+      });
   }, [youtube, id]);
 
   //채널 썸네일 받아오기
   useEffect(() => {
-    try {
-      if (video) {
-        setChannelLoading(true);
-        const channelId = video.snippet.channelId;
-        youtube
-          .getChannelInfo(channelId) //
-          .then((result) => {
-            setChannelInfo(result[0]);
-          });
-        setChannelLoading(false);
-      }
-    } catch (e) {
-      // 에러처리
+    if (video) {
+      setChannelLoading(true);
+      const channelId = video.snippet.channelId;
+      youtube
+        .getChannelInfo(channelId) //
+        .then((result) => {
+          setChannelInfo(result[0]);
+          setChannelLoading(false);
+        });
     }
   }, [youtube, video]);
 
   // 관련 영상
   useEffect(() => {
-    try {
-      setListLoading(true);
-      youtube
-        .getRelatedVideo(id)
-        .then((result) =>
-          setRelatedVideo(result.filter((item) => item.snippet))
-        );
+    setListLoading(true);
+    youtube.getRelatedVideo(id).then((result) => {
+      setRelatedVideo(result.filter((item) => item.snippet));
       setListLoading(false);
-    } catch (e) {
-      // 에러처리
-    }
+    });
   }, [id, youtube]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
 
-  const isLoading = detailLoading && channelLoading && listLoading;
+  const isLoading = detailLoading || channelLoading || listLoading;
 
   return (
     <div className={styles.container}>
