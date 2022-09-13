@@ -1,21 +1,25 @@
 import React, { memo } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import { isDark } from '../recoil/atom';
 import styles from './nav.module.css';
 
 const Nav = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const homePathname = location.pathname;
+  const theme = useRecoilValue(isDark);
+  const themeType = theme === 'dark' ? styles.dark : styles.light;
   const goHome = () => {
     navigate('/');
   };
   return (
-    <nav className={styles.nav}>
+    <nav className={`${styles.nav} ${themeType}`}>
       <ul>
         <li className={styles.li} onClick={goHome}>
           {homePathname === '/' ? (
             <svg
-              className={styles.svg}
+              className={`${styles.svg} ${themeType}`}
               viewBox="0 0 24 24"
               preserveAspectRatio="xMidYMid meet"
               focusable="false"
@@ -24,7 +28,7 @@ const Nav = () => {
             </svg>
           ) : (
             <svg
-              className={styles.svg}
+              className={`${styles.svg} ${themeType}`}
               viewBox="0 0 24 24"
               preserveAspectRatio="xMidYMid meet"
               focusable="false"
@@ -36,7 +40,7 @@ const Nav = () => {
         </li>
         <li className={styles.li}>
           <svg
-            className={styles.svg}
+            className={`${styles.svg} ${themeType}`}
             viewBox="0 0 24 24"
             preserveAspectRatio="xMidYMid meet"
             focusable="false"
@@ -47,7 +51,7 @@ const Nav = () => {
         </li>
         <li className={styles.li}>
           <svg
-            className={styles.svg}
+            className={`${styles.svg} ${themeType}`}
             viewBox="0 0 24 24"
             preserveAspectRatio="xMidYMid meet"
             focusable="false"
@@ -58,7 +62,7 @@ const Nav = () => {
         </li>
         <li className={styles.li}>
           <svg
-            className={styles.svg}
+            className={`${styles.svg} ${themeType}`}
             viewBox="0 0 24 24"
             preserveAspectRatio="xMidYMid meet"
             focusable="false"
@@ -69,7 +73,7 @@ const Nav = () => {
         </li>
         <li className={styles.li}>
           <svg
-            className={styles.svg}
+            className={`${styles.svg} ${themeType}`}
             viewBox="0 0 24 24"
             preserveAspectRatio="xMidYMid meet"
             focusable="false"
@@ -80,7 +84,7 @@ const Nav = () => {
         </li>
         <li className={styles.li}>
           <svg
-            className={styles.svg}
+            className={`${styles.svg} ${themeType}`}
             viewBox="0 0 24 24"
             preserveAspectRatio="xMidYMid meet"
             focusable="false"
@@ -91,7 +95,7 @@ const Nav = () => {
         </li>
         <li className={styles.li}>
           <svg
-            className={styles.svg}
+            className={`${styles.svg} ${themeType}`}
             viewBox="0 0 24 24"
             preserveAspectRatio="xMidYMid meet"
             focusable="false"
@@ -102,7 +106,7 @@ const Nav = () => {
         </li>
         <li className={styles.li}>
           <svg
-            className={styles.svg}
+            className={`${styles.svg} ${themeType}`}
             viewBox="0 0 24 24"
             preserveAspectRatio="xMidYMid meet"
             focusable="false"

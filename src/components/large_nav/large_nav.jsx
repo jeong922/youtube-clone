@@ -1,11 +1,15 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import { isDark } from '../recoil/atom';
 import styles from './large_nav.module.css';
 
 const LargeNav = ({ setIsLarge }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const homePathname = location.pathname;
+  const theme = useRecoilValue(isDark);
+  const themeType = theme === 'dark' ? styles.dark : styles.light;
   const goHome = () => {
     navigate('/');
     setIsLarge(false);
@@ -17,11 +21,11 @@ const LargeNav = ({ setIsLarge }) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
+      <div className={`${styles.header} ${themeType}`}>
         <div className={styles.wrapper}>
           <button className={styles.guideBtn} onClick={onClick}>
             <svg
-              className={styles.guideBtnSvg}
+              className={`${styles.guideBtnSvg} ${themeType}`}
               viewBox="0 0 24 24"
               preserveAspectRatio="xMidYMid meet"
               focusable="false"
@@ -40,12 +44,12 @@ const LargeNav = ({ setIsLarge }) => {
         </div>
       </div>
 
-      <nav className={styles.nav}>
+      <nav className={`${styles.nav} ${themeType}`}>
         <ul>
           <li className={styles.li} onClick={goHome}>
             {homePathname === '/' ? (
               <svg
-                className={styles.svg}
+                className={`${styles.svg} ${themeType}`}
                 viewBox="0 0 24 24"
                 preserveAspectRatio="xMidYMid meet"
                 focusable="false"
@@ -54,7 +58,7 @@ const LargeNav = ({ setIsLarge }) => {
               </svg>
             ) : (
               <svg
-                className={styles.svg}
+                className={`${styles.svg} ${themeType}`}
                 viewBox="0 0 24 24"
                 preserveAspectRatio="xMidYMid meet"
                 focusable="false"
@@ -66,7 +70,7 @@ const LargeNav = ({ setIsLarge }) => {
           </li>
           <li className={styles.li}>
             <svg
-              className={styles.svg}
+              className={`${styles.svg} ${themeType}`}
               viewBox="0 0 24 24"
               preserveAspectRatio="xMidYMid meet"
               focusable="false"
@@ -77,7 +81,7 @@ const LargeNav = ({ setIsLarge }) => {
           </li>
           <li className={styles.li}>
             <svg
-              className={styles.svg}
+              className={`${styles.svg} ${themeType}`}
               viewBox="0 0 24 24"
               preserveAspectRatio="xMidYMid meet"
               focusable="false"
@@ -88,7 +92,7 @@ const LargeNav = ({ setIsLarge }) => {
           </li>
           <li className={styles.li}>
             <svg
-              className={styles.svg}
+              className={`${styles.svg} ${themeType}`}
               viewBox="0 0 24 24"
               preserveAspectRatio="xMidYMid meet"
               focusable="false"
@@ -99,7 +103,7 @@ const LargeNav = ({ setIsLarge }) => {
           </li>
           <li className={styles.li}>
             <svg
-              className={styles.svg}
+              className={`${styles.svg} ${themeType}`}
               viewBox="0 0 24 24"
               preserveAspectRatio="xMidYMid meet"
               focusable="false"
@@ -110,7 +114,7 @@ const LargeNav = ({ setIsLarge }) => {
           </li>
           <li className={styles.li}>
             <svg
-              className={styles.svg}
+              className={`${styles.svg} ${themeType}`}
               viewBox="0 0 24 24"
               preserveAspectRatio="xMidYMid meet"
               focusable="false"
@@ -121,7 +125,7 @@ const LargeNav = ({ setIsLarge }) => {
           </li>
           <li className={styles.li}>
             <svg
-              className={styles.svg}
+              className={`${styles.svg} ${themeType}`}
               viewBox="0 0 24 24"
               preserveAspectRatio="xMidYMid meet"
               focusable="false"
@@ -132,7 +136,7 @@ const LargeNav = ({ setIsLarge }) => {
           </li>
           <li className={styles.li}>
             <svg
-              className={styles.svg}
+              className={`${styles.svg} ${themeType}`}
               viewBox="0 0 24 24"
               preserveAspectRatio="xMidYMid meet"
               focusable="false"

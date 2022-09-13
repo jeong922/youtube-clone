@@ -1,6 +1,7 @@
-@value backgroundDarkGray, lightGrayfontColor, backgroundLightGray, bgphoto from '../../common/colors.css';
+@value backgroundBlack, backgroundWhite, backgroundDarkGray, lightGrayfontColor, backgroundLightGray, bgphoto from '../../common/colors.css';
 
-.header {
+.header,
+.header.dark {
   position: fixed;
   top: 0;
   height: 70;
@@ -13,6 +14,10 @@
   background-color: backgroundDarkGray;
   z-index: 2;
   font-family: 'Oswald', sans-serif;
+}
+
+.header.light {
+  background-color: backgroundWhite;
 }
 
 .wrapper {
@@ -32,11 +37,17 @@
   cursor: pointer;
 }
 
-.logo {
+.logo,
+.logo.dark {
   display: inline-flex;
   height: 40px;
   align-items: center;
   cursor: pointer;
+  color: white;
+}
+
+.logo.light {
+  color: backgroundBlack;
 }
 
 .youtube {
@@ -46,7 +57,6 @@
 .title {
   font-size: 24px;
   margin-left: 0.2em;
-  color: white;
   font-weight: 600;
 }
 
@@ -56,15 +66,21 @@
 }
 
 .form,
-.form.hidden {
+.form.hidden,
+.form.dark {
   width: 100%;
   text-align: center;
   background-color: backgroundLightGray;
-  color: lightGrayfontColor;
+}
+
+.form.light {
+  color: backgroundBlack;
+  border: 1px solid lightGrayfontColor;
 }
 
 .input,
-.input.hidden {
+.input.hidden,
+.input.dark {
   width: 75%;
   padding: 2px 15px;
   background-color: transparent;
@@ -72,6 +88,10 @@
   outline: none;
   font-size: 18px;
   color: #f1f1f1;
+}
+
+.input.light {
+  color: #575757;
 }
 
 .searchBtn {
@@ -108,9 +128,14 @@
   margin-right: 0;
 }
 
-.svg {
+.svg,
+.svg.dark {
   height: 24px;
   fill: white;
+}
+
+.svg.light {
+  fill: backgroundBlack;
 }
 
 .avatar {

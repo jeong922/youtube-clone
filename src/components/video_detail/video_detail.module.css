@@ -1,4 +1,4 @@
-@value backgroundDarkGray, backgroundLightGray, lightGrayfontColor,fontColor, tagColor, bgphoto from '../../common/colors.css';
+@value backgroundBlack, backgroundWhite, backgroundDarkGray, backgroundLightGray, lightGrayfontColor, fontColor, tagColor, bgphoto from '../../common/colors.css';
 
 .container {
   width: 100%;
@@ -66,7 +66,8 @@
   display: flex;
 }
 
-.button {
+.button,
+.button.dark {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,10 +79,19 @@
   cursor: pointer;
 }
 
-.svg {
+.button.light {
+  color: backgroundBlack;
+}
+
+.svg,
+.svg.dark {
   width: 24px;
   height: 24px;
   fill: white;
+}
+
+.svg.light {
+  fill: backgroundBlack;
 }
 
 .button_text {
@@ -118,13 +128,19 @@
   word-break: break-all;
 }
 
-.list {
+.list,
+.list.dark {
   background-color: backgroundDarkGray;
   padding: 8px 12px;
   border: 1px solid backgroundLightGray;
   margin-bottom: 10px;
   border-radius: 20px;
   display: inline-block;
+}
+
+.list.light {
+  background-color: backgroundLightGray;
+  border: 1px solid backgroundDarkGray;
 }
 
 @media screen and (max-width: 64rem) {

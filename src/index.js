@@ -5,6 +5,7 @@ import '@fortawesome/fontawesome-free/js/all.js';
 import App from './app';
 import Youtube from './api/youtube';
 import axios from 'axios';
+import { RecoilRoot } from 'recoil';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -19,6 +20,8 @@ const youtube = new Youtube(httpClient);
 
 root.render(
   <React.StrictMode>
-    <App youtube={youtube} />
+    <RecoilRoot>
+      <App youtube={youtube} />
+    </RecoilRoot>
   </React.StrictMode>
 );

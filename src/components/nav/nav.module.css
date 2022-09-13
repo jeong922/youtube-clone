@@ -1,12 +1,17 @@
-@value backgroundDarkGray, backgroundLightGray,fontColor from '../../common/colors.css';
+@value backgroundBlack, backgroundWhite, backgroundDarkGray, backgroundLightGray,fontColor from '../../common/colors.css';
 
-.nav {
+.nav,
+.nav.dark {
   background-color: backgroundDarkGray;
   position: fixed;
   top: 4rem;
   left: 0;
   bottom: 0;
   width: 72px;
+}
+
+.nav.light {
+  background-color: backgroundWhite;
 }
 
 .li {
@@ -22,11 +27,16 @@
   background-color: backgroundLightGray;
 }
 
-.svg {
+.svg,
+.svg.dark {
   height: 24px;
   width: 24px;
   fill: fontColor;
   margin-bottom: 6px;
+}
+
+.svg.light {
+  fill: backgroundBlack;
 }
 
 .span {

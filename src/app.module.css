@@ -1,3 +1,15 @@
+@value backgroundBlack, backgroundWhite from './common/colors.css';
+
+.container.dark {
+  background-color: backgroundBlack;
+  color: backgroundWhite;
+}
+
+.container.light {
+  background-color: backgroundWhite;
+  color: #0f0f0f;
+}
+
 .content {
   width: 100%;
   margin-top: 70px;

@@ -1,0 +1,29 @@
+@value backgroundDarkGray, fontColor from '../../common/colors.css';
+
+.button,
+.button.dark {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  background-color: backgroundDarkGray;
+  box-shadow: 0 5px 18px -7px rgba(0, 0, 0, 1);
+  cursor: pointer;
+}
+
+.button.light {
+  background-color: white;
+}
+
+.button:hover {
+  transform: scale(1.02);
+}
+
+.svg {
+  width: 25px;
+  height: 25px;
+  fill: rgb(255, 192, 57);
+}

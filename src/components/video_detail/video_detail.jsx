@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
 import Loading from '../loading/loading';
+import { isDark } from '../recoil/atom';
 import VideoList from '../video_list/video_list';
 import styles from './video_detail.module.css';
 
@@ -13,6 +15,8 @@ function VideoDetail({ youtube }) {
   const [detailLoading, setDetailLoading] = useState(false);
   const [channelLoading, setChannelLoading] = useState(false);
   const [listLoading, setListLoading] = useState(false);
+  const theme = useRecoilValue(isDark);
+  const themeType = theme === 'dark' ? styles.dark : styles.light;
 
   // 비디오 디테일 정보 받아오기
   useEffect(() => {
@@ -89,9 +93,9 @@ function VideoDetail({ youtube }) {
                     </span>
                   </div>
                   <div className={styles.buttons}>
-                    <button className={styles.button}>
+                    <button className={`${styles.button} ${themeType}`}>
                       <svg
-                        className={styles.svg}
+                        className={`${styles.svg} ${themeType}`}
                         viewBox="0 0 24 24"
                         preserveAspectRatio="xMidYMid meet"
                         focusable="false"
@@ -101,9 +105,9 @@ function VideoDetail({ youtube }) {
                       <span className={styles.button_text}>좋아요</span>
                     </button>
 
-                    <button className={styles.button}>
+                    <button className={`${styles.button} ${themeType}`}>
                       <svg
-                        className={styles.svg}
+                        className={`${styles.svg} ${themeType}`}
                         viewBox="0 0 24 24"
                         preserveAspectRatio="xMidYMid meet"
                         focusable="false"
@@ -113,9 +117,9 @@ function VideoDetail({ youtube }) {
                       <span className={styles.button_text}>싫어요</span>
                     </button>
 
-                    <button className={styles.button}>
+                    <button className={`${styles.button} ${themeType}`}>
                       <svg
-                        className={styles.svg}
+                        className={`${styles.svg} ${themeType}`}
                         viewBox="0 0 24 24"
                         preserveAspectRatio="xMidYMid meet"
                         focusable="false"
@@ -126,9 +130,9 @@ function VideoDetail({ youtube }) {
                       <span className={styles.button_text}>공유</span>
                     </button>
 
-                    <button className={styles.button}>
+                    <button className={`${styles.button} ${themeType}`}>
                       <svg
-                        className={styles.svg}
+                        className={`${styles.svg} ${themeType}`}
                         viewBox="0 0 24 24"
                         preserveAspectRatio="xMidYMid meet"
                         focusable="false"
@@ -138,9 +142,9 @@ function VideoDetail({ youtube }) {
                       <span className={styles.button_text}>오프라인 저장</span>
                     </button>
 
-                    <button className={styles.button}>
+                    <button className={`${styles.button} ${themeType}`}>
                       <svg
-                        className={styles.svg}
+                        className={`${styles.svg} ${themeType}`}
                         viewBox="0 0 24 24"
                         preserveAspectRatio="xMidYMid meet"
                         focusable="false"
@@ -150,9 +154,9 @@ function VideoDetail({ youtube }) {
                       <span className={styles.button_text}>클립</span>
                     </button>
 
-                    <button className={styles.button}>
+                    <button className={`${styles.button} ${themeType}`}>
                       <svg
-                        className={styles.svg}
+                        className={`${styles.svg} ${themeType}`}
                         viewBox="0 0 24 24"
                         preserveAspectRatio="xMidYMid meet"
                         focusable="false"
@@ -164,7 +168,7 @@ function VideoDetail({ youtube }) {
                     </button>
                     <button className={styles.button}>
                       <svg
-                        className={styles.svg}
+                        className={`${styles.svg} ${themeType}`}
                         viewBox="0 0 24 24"
                         preserveAspectRatio="xMidYMid meet"
                         focusable="false"
@@ -206,7 +210,7 @@ function VideoDetail({ youtube }) {
       )}
       {relatedVideo && (
         <div className={styles.secondary}>
-          <div className={styles.list}>
+          <div className={`${styles.list} ${themeType}`}>
             <span className={styles.listTitle}>관련 콘텐츠</span>
           </div>
 

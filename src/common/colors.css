@@ -1,6 +1,7 @@
 /* @value key: value */
 
-@value backgroundBlack: black;
+@value backgroundBlack: #0f0f0f;
+@value backgroundWhite: rgb(247, 247, 247);
 @value backgroundDarkGray: #212121;
 @value backgroundLightGray: #ffffff1a;
 @value fontColor: #ffffff;
