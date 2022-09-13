@@ -46,7 +46,7 @@ const LargeNav = ({ setIsLarge }) => {
 
       <nav className={`${styles.nav} ${themeType}`}>
         <ul>
-          <li className={styles.li} onClick={goHome}>
+          <li className={`${styles.li} ${themeType}`} onClick={goHome}>
             {homePathname === '/' ? (
               <svg
                 className={`${styles.svg} ${themeType}`}
@@ -68,7 +68,7 @@ const LargeNav = ({ setIsLarge }) => {
             )}
             <span className={styles.span}>홈</span>
           </li>
-          <li className={styles.li}>
+          <li className={`${styles.li} ${themeType}`}>
             <svg
               className={`${styles.svg} ${themeType}`}
               viewBox="0 0 24 24"
@@ -79,7 +79,7 @@ const LargeNav = ({ setIsLarge }) => {
             </svg>
             <span className={styles.span}>탐색</span>
           </li>
-          <li className={styles.li}>
+          <li className={`${styles.li} ${themeType}`}>
             <svg
               className={`${styles.svg} ${themeType}`}
               viewBox="0 0 24 24"
@@ -90,7 +90,7 @@ const LargeNav = ({ setIsLarge }) => {
             </svg>
             <span className={styles.span}>Shorts</span>
           </li>
-          <li className={styles.li}>
+          <li className={`${styles.li} ${themeType}`}>
             <svg
               className={`${styles.svg} ${themeType}`}
               viewBox="0 0 24 24"
@@ -101,7 +101,7 @@ const LargeNav = ({ setIsLarge }) => {
             </svg>
             <span className={styles.span}>구독</span>
           </li>
-          <li className={styles.li}>
+          <li className={`${styles.li} ${themeType}`}>
             <svg
               className={`${styles.svg} ${themeType}`}
               viewBox="0 0 24 24"
@@ -112,7 +112,7 @@ const LargeNav = ({ setIsLarge }) => {
             </svg>
             <span className={styles.span}>Originals</span>
           </li>
-          <li className={styles.li}>
+          <li className={`${styles.li} ${themeType}`}>
             <svg
               className={`${styles.svg} ${themeType}`}
               viewBox="0 0 24 24"
@@ -123,7 +123,7 @@ const LargeNav = ({ setIsLarge }) => {
             </svg>
             <span className={styles.span}>YouTube Music</span>
           </li>
-          <li className={styles.li}>
+          <li className={`${styles.li} ${themeType}`}>
             <svg
               className={`${styles.svg} ${themeType}`}
               viewBox="0 0 24 24"
@@ -134,7 +134,7 @@ const LargeNav = ({ setIsLarge }) => {
             </svg>
             <span className={styles.span}>보관함</span>
           </li>
-          <li className={styles.li}>
+          <li className={`${styles.li} ${themeType}`}>
             <svg
               className={`${styles.svg} ${themeType}`}
               viewBox="0 0 24 24"

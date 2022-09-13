@@ -1,4 +1,4 @@
-@value backgroundBlack, backgroundWhite, backgroundDarkGray, backgroundLightGray, fontColor, backgroundWhite from '../../common/colors.css';
+@value backgroundBlack, backgroundWhite, backgroundDarkGray, backgroundLightGray, fontColor from '../../common/colors.css';
 
 .header,
 .header.dark {
@@ -17,7 +17,7 @@
 }
 
 .header.light {
-  background-color: backgroundWhite;
+  background-color: white;
   color: backgroundBlack;
 }
 
@@ -85,7 +85,7 @@
 }
 
 .nav.light {
-  background-color: backgroundWhite;
+  background-color: white;
   color: #0f0f0f;
 }
 
@@ -101,6 +101,10 @@
 
 .li:hover {
   background-color: backgroundLightGray;
+}
+
+.li.light:hover {
+  background-color: rgba(197, 197, 197, 0.7);
 }
 
 .guideBtnSvg,
@@ -121,11 +125,9 @@
 }
 
 .svg.dark {
-  background-color: backgroundBlack;
   fill: fontColor;
 }
 
 .svg.light {
-  background-color: backgroundWhite;
   fill: #0f0f0f;
 }
