@@ -70,7 +70,7 @@ function Header({ onSearch, setIsLarge }) {
             onClick={hidden}
           >
             <svg
-              className={styles.svg}
+              className={`${styles.svg} ${themeType}`}
               viewBox="0 0 24 24"
               preserveAspectRatio="xMidYMid meet"
               focusable="false"

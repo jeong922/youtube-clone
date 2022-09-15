@@ -94,7 +94,8 @@
   color: #575757;
 }
 
-.searchBtn {
+.searchBtn,
+.searchBtn.dark {
   background-color: transparent;
   height: 30px;
   width: 30px;
@@ -158,10 +159,15 @@
   z-index: 4;
 }
 
-.form.display {
+.form.display,
+.form.display.dark {
   background-color: #575757;
   height: 100%;
   width: 100%;
+}
+
+.form.display.light {
+  background-color: backgroundWhite;
 }
 
 .input.display {
