@@ -15,6 +15,7 @@ function VideoDetail({ youtube }) {
   const [detailLoading, setDetailLoading] = useState(false);
   const [channelLoading, setChannelLoading] = useState(false);
   const [listLoading, setListLoading] = useState(false);
+  const [comment, setComment] = useState();
   const theme = useRecoilValue(isDark);
   const themeType = theme === 'dark' ? styles.dark : styles.light;
 
@@ -49,6 +50,13 @@ function VideoDetail({ youtube }) {
     youtube.getRelatedVideo(id).then((result) => {
       setRelatedVideo(result.filter((item) => item.snippet));
       setListLoading(false);
+    });
+  }, [id, youtube]);
+
+  // 댓글
+  useEffect(() => {
+    youtube.getComment(id).then((result) => {
+      setComment(result);
     });
   }, [id, youtube]);
 
@@ -206,6 +214,29 @@ function VideoDetail({ youtube }) {
               </section>
             </>
           )}
+          <div className={styles.commentWrapper}>
+            {comment.map((item) => (
+              <div className={styles.comment}>
+                <div>
+                  <img
+                    className={styles.authorProfile}
+                    src={
+                      item.snippet.topLevelComment.snippet.authorProfileImageUrl
+                    }
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <span className={styles.authorName}>
+                    {item.snippet.topLevelComment.snippet.authorDisplayName}
+                  </span>
+                  <p className={styles.textOriginal}>
+                    {item.snippet.topLevelComment.snippet.textOriginal}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </section>
       )}
       {relatedVideo && (

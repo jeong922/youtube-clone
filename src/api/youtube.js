@@ -65,6 +65,18 @@ class Youtube {
       id: item.id.videoId,
     }));
   }
+
+  async getComment(videoId) {
+    const response = await this.youtube.get('commentThreads', {
+      params: {
+        part: 'snippet',
+        maxResults: 20,
+        order: 'relevance',
+        videoId: videoId,
+      },
+    });
+    return response.data.items;
+  }
 }
 
 export default Youtube;
