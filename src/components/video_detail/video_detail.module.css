@@ -129,10 +129,30 @@
 }
 
 .commentWrapper {
+  padding: 24px 0;
 }
 
 .authorProfile {
   border-radius: 50%;
+}
+
+.comment {
+  display: flex;
+  margin-bottom: 24px;
+}
+
+.authorProfileWrapper {
+  margin-right: 16px;
+}
+
+.authorName {
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.textOriginal {
+  font-size: 14px;
 }
 
 .list,

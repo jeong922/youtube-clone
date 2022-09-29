@@ -214,29 +214,33 @@ function VideoDetail({ youtube }) {
               </section>
             </>
           )}
-          <div className={styles.commentWrapper}>
-            {comment.map((item) => (
-              <div className={styles.comment}>
-                <div>
-                  <img
-                    className={styles.authorProfile}
-                    src={
-                      item.snippet.topLevelComment.snippet.authorProfileImageUrl
-                    }
-                    alt=""
-                  />
+          {comment && (
+            <div className={styles.commentWrapper}>
+              {comment.map((item) => (
+                <div className={styles.comment}>
+                  <div className={styles.authorProfileWrapper}>
+                    <img
+                      className={styles.authorProfile}
+                      src={
+                        item.snippet.topLevelComment.snippet
+                          .authorProfileImageUrl
+                      }
+                      alt=""
+                    />
+                  </div>
+                  {console.log(comment)}
+                  <div>
+                    <span className={styles.authorName}>
+                      {item.snippet.topLevelComment.snippet.authorDisplayName}
+                    </span>
+                    <p className={styles.textOriginal}>
+                      {item.snippet.topLevelComment.snippet.textOriginal}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <span className={styles.authorName}>
-                    {item.snippet.topLevelComment.snippet.authorDisplayName}
-                  </span>
-                  <p className={styles.textOriginal}>
-                    {item.snippet.topLevelComment.snippet.textOriginal}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </section>
       )}
       {relatedVideo && (
