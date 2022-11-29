@@ -1,7 +1,5 @@
 # YouTube clone
 
-## [클릭😊](https://jeong922.github.io/youtube-clone/)
-
 ## 목적
 
 - react, PostCSS, youtube api, axios 등을 이용하여 유튜브 클론
